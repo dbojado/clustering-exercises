@@ -3,5 +3,5 @@
  __pycache__
  env.py
  *.csv
- *.xlsx
+ *.xlsx  
  .vscode
