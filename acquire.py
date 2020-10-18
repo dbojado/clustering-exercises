@@ -56,6 +56,24 @@ def new_zillow_data():
     df.to_csv('zillow_home.csv')
     return df
 
+def zillow_data_query():
+    sql_query =   """
+    select * from properties_2017
+    join predictions_2017 using(parcelid)
+    left join airconditioningtype using(airconditioningtypeid)
+    left join architecturalstyletype using(architecturalstyletypeid)
+    left join buildingclasstype using(buildingclasstypeid)
+    left join heatingorsystemtype using(heatingorsystemtypeid)
+    left join propertylandusetype using(propertylandusetypeid)
+    left join storytype using(storytypeid)
+    left join typeconstructiontype using(typeconstructiontypeid)
+    where latitude IS NOT NULL
+    and longitude IS NOT NULL
+    """
+    df = pd.read_sql(sql_query, get_connection('zillow'))
+    df.to_csv('zillow_home.csv')
+    return df
+
 def get_zillow_data(cached=False):
     '''
     This function reads in mall customer data from Codeup database if cached == False
