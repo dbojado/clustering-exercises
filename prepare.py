@@ -17,7 +17,6 @@ def data_prep(df, cols_to_remove=[], prop_required_column=.5, prop_required_row=
     df.dropna(inplace=True) # Drops all Null Values From Dataframe
     return df
 
-
 def remove_columns(df, cols_to_remove):  
     df = df.drop(columns=cols_to_remove)
     return df
