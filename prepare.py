@@ -3,7 +3,7 @@ import numpy as np
 import scipy as sp 
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
+import os 
 
 from env import host, username, password
 from sklearn.model_selection import train_test_split
